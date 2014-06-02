@@ -61,8 +61,17 @@
 
 		items        = document.querySelectorAll('.foldy-item');
 		home         = document.getElementById('foldy-home');
-		home.onclick = fold
-		
+
+		if (typeof document.body.ontouchstart !== 'undefined') {
+
+			home.addEventListener('touchstart', fold, false);
+
+		} else {
+
+			home.addEventListener('mouseup', fold, false);
+			
+		}
+
 	};
 
 	window.Foldy = Foldy;
