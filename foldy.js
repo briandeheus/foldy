@@ -11,16 +11,23 @@
 
 		var delta   = index + 1;
 		var noffset = delta * (height + offset);
+		var aindex  = items.length - 1 - index;
 
-		items[items.length - 1 - index].style['-webkit-transform'] = 'translatey(-' + noffset + 'px)';
-		items[items.length - 1 - index].style['transform'] = 'translatey(-' + noffset + 'px)';
+		//To prevent ugly borders when collapsed
+		items[aindex].style.border               = '1px solid gray';
+		items[aindex].style['-webkit-transform'] = 'translatey(-' + noffset + 'px)';
+		items[aindex].style['transform']         = 'translatey(-' + noffset + 'px)';
 
 	}
 
 	function collapse(index) {
 
+		
 		items[index].style['-webkit-transform'] = '';
 		items[index].style['transform']         = '';
+
+		//To prevent ugly borders when collapsed
+		items[index].style.border = 'none';
 
 	}
 
@@ -39,7 +46,7 @@
 		state = (state) ? 0 : 1;
 	}
 
-	function Foldy(homeButton, options) {
+	function Foldy(options) {
 
 		options       = options || {};
 		height        = options.height || 40;
@@ -47,14 +54,14 @@
 		animationTime = options.animationTime || 200;
 
 		state = 0;
-		home  = homeButton;
 		
 	}
 
 	Foldy.prototype.init = function () {
 
 		items        = document.querySelectorAll('.foldy-item');
-		home.onclick = fold;
+		home         = document.getElementById('foldy-home');
+		home.onclick = fold
 		
 	};
 
