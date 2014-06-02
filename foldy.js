@@ -35,13 +35,13 @@
 
 		for (var i = 0, l = items.length; i < l; i++) {
 
-				if (state === 0) {
-					expand(i);
-				} else {
-					collapse(i);
-				}
-
+			if (state === 0) {
+				expand(i);
+			} else {
+				collapse(i);
 			}
+
+		}
 
 		state = (state) ? 0 : 1;
 	}
