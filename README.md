@@ -1,7 +1,10 @@
 #Foldy
 Folding menu for mobile websites
 
-#Example
+## Demo
+[Click me!](http://briandeheus.github.io/foldy/)
+
+## Example
 ```
 <div id="foldy">
     <ul id="foldy-menu">
